@@ -1,0 +1,138 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="menu">
+    <xs:complexType> 
+      <xs:sequence>
+        <xs:element name="menu" type="xs:string"/>
+        <xs:element name="rodzaj" type="Rodzaj_DaniaEnum"/>
+          <xs:complexType>
+            <xs:sequence>
+            <xs:simpleType name="Rodzaj_DaniaEnum">
+                <xs:restriction base="xs:String">
+                    <xs:enumeration value="<xs:element type="xs:string" name="kebab"/>>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="zestaw"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="inne_dania"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="napoje"/>"/>
+              <xs:element name="kebab">
+                <xs:complexType>
+                  <xs:sequence>
+                  <xs:simpleType name="Rodzaj_cienki">
+                <xs:restriction base="xs:String">
+                    <xs:enumeration value="<xs:element type="xs:string" name="na_cienkim"/>>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="na_grubym"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="na_talerzu"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="zestaw"/>"/>
+
+
+                    <xs:element name="na_cienkim">
+                      <xs:complexType>
+                        <xs:sequence>
+                        <xs:simpleType name="Cienki_dodatki">
+                        <xs:restriction base="xs:String">
+                    <xs:enumeration value="<xs:element type="xs:string" name="sos"/>>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="mieso"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="rozmiar"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="cena"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="inne_dania"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="napoje"/>"/>
+              <xs:element name="kebab">
+                          <xs:element type="xs:string" name="mieso"/>
+                          <xs:element type="xs:string" name="rozmiar"/>
+                          <xs:element type="xs:string" name="sos"/>
+                          <xs:element type="xs:float" name="cena"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="na_grubym">
+                      <xs:complexType>
+                        <xs:sequence>
+                        <xs:simpleType name="rodzaj_gruby">
+                        <xs:restriction base="xs:String">
+                     <xs:enumeration value="<xs:element type="xs:string" name="sos"/>>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="mieso"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="rozmiar"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="cena"/>"/>
+
+
+            
+                          <xs:element type="xs:string" name="mieso"/>
+                          <xs:element type="xs:string" name="rozmiar"/>
+                          <xs:element type="xs:string" name="sos"/>
+                          <xs:element type="xs:" name="cena"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="na_talerzu">
+                      <xs:complexType>
+                        <xs:sequence>
+                        <xs:simpleType name="rodzaj_na_talerzu">
+                        <xs:restriction base="xs:String">
+                     <xs:enumeration value="<xs:element type="xs:string" name="sos"/>>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="mieso"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:string" name="rozmiar"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="cena"/>"/>
+
+                          
+                          
+                          <xs:element type="xs:string" name="mieso"/>
+                          <xs:element type="xs:string" name="rozmiar"/>
+                          <xs:element type="xs:string" name="sos"/>
+                          <xs:element type="xs:string" name="cena"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="zestaw">
+                <xs:complexType>
+                  <xs:sequence>
+                   <xs:simpleType name="rodzaj_zestawu">
+                    <xs:restriction base="xs:String">
+
+                    <xs:enumeration value="<xs:element type="xs:string" name="nazwa"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="cena"/>"/>
+
+
+                    <xs:element type="xs:string" name="nazwa"/>
+                    <xs:element type="xs:string" name="cena"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="inne_dania">
+                <xs:complexType>
+                  <xs:sequence>
+                  <xs:simpleType name="rodzaj_innego_dania">
+                <xs:restriction base="xs:String">
+
+                    <xs:enumeration value="<xs:element type="xs:string" name="nazwa"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="cena"/>"/>
+
+                    <xs:element type="xs:string" name="nazwa"/>
+                    <xs:element type="xs:string" name="cena"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="napoje">
+                <xs:complexType>
+                  <xs:sequence>
+                 
+                <xs:simpleType name="rodzaj_napoju">
+                <xs:restriction base="xs:String">
+                    <xs:enumeration value="<xs:element type="xs:string" name="nazwa"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:String" name="rozmiar"/>"/>
+                    <xs:enumeration value="<xs:element type="xs:float" name="cena"/>"/>
+
+
+                    <xs:element type="xs:string" name="nazwa"/>
+                    <xs:element type="xs:string" name="rozmiar"/>
+                    <xs:element type="xs:string" name="cena"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

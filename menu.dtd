@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT menu (dania,napoje)>
+<!ELEMENT dania (kebab,zestaw,inne_dania)>
+<!ELEMENT kebab (na_cienkim,na_grubym,na_talerzu)>
+<!ELEMENT zestaw (nazwa+,cena+,dodatki)>
+<!ELEMENT inne_dania (nazwa,cena)>
+<!ELEMENT napoje (nazwa,rozmiar,cena)>
+	
+<!ELEMENT na_cienkim (mieso,rozmiar,sos,cena+)>
+<!ELEMENT na_grubym (mieso,rozmiar,sos,cena+)>
+<!ELEMENT na_talerzu (mieso,rozmiar,sos,cena+)>
+
+<!ELEMENT nazwa (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+<!ELEMENT dodatki (#PCDATA)>
+<!ELEMENT mieso (#PCDATA)>
+<!ELEMENT rozmiar (#PCDATA)>
+<!ELEMENT sos (#PCDATA)>
