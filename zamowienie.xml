@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE menu SYSTEM "menu.dtd">
+<menu>
+	<dania>
+		<kebab>
+			<na_cienkim>
+				<mieso></mieso>
+				<rozmiar></rozmiar>
+				<sos></sos>
+				<cena></cena>
+			</na_cienkim>
+			<na_grubym>
+				<mieso></mieso>
+				<rozmiar></rozmiar>
+				<sos></sos>
+				<cena></cena>
+			</na_grubym>
+			<na_talerzu>
+				<mieso></mieso>
+				<rozmiar></rozmiar>
+				<sos></sos>
+				<cena></cena>
+			</na_talerzu>
+		</kebab>
+		<zestaw>
+			<nazwa></nazwa>
+			<cena></cena>
+			<dodatki></dodatki>
+		</zestaw>
+		<inne_dania>
+			<nazwa></nazwa>
+			<cena></cena>
+		</inne_dania>
+	</dania>
+	<napoje>
+			<nazwa></nazwa>
+			<rozmiar></rozmiar>
+			<cena></cena>
+	</napoje>
+</menu>
