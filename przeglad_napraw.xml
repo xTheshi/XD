@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="przeglad_napraw.xsl" type="text/xsl" ?>
 <xs:przeglad_napraw
 	xmlns:xs="przeglad_napraw_demo.xsd"
@@ -65,7 +65,7 @@
 		</zakonczenie_naprawy>
 	</naprawa>
 
-	<naprawa id="3">
+	<naprawa id="323">
 		<ogolne>
 			<urzadzenie>Huawei Mate 30</urzadzenie>
 			<usterka>Wymiana wyświetlacza i baterii</usterka>
