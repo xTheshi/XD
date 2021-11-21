@@ -1,102 +1,88 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns="przeglad_napraw.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="przeglad_napraw.xsd" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	
+	<xs:complexType name="ogolneType">
+		<xs:all>
+			<xs:element name="urzadzenie" type="xs:string"/>
+			<xs:element name="usterka" type="xs:string"/>
+			<xs:element name="cena" type="xs:double"/>
+			<xs:element name="folia_ochronna" type="folia_ochronnaEnum"/>
+			<xs:element name="typ_naprawy" type="typ_naprawyEnum"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:simpleType name="folia_ochronnaEnum">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="tak"/>
+			<xs:enumeration value="nie"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typ_naprawyEnum">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="stacjonarna"/>
+			<xs:enumeration value="wysyłkowa"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:complexType name="opisType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="opis_glowny" type="xs:string" />
+			<xs:element name="opis_wewnetrzny" type="xs:string" />
+			<xs:element name="imei" type="xs:string" />
+			<xs:element name="kod_blokady" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	<xs:complexType name="dane_klientaType">
+		<xs:all>
+			<xs:element name="imie" type="xs:string"/>
+			<xs:element name="nazwisko" type="xs:string"/>
+			<xs:element name="numer_telefonu" type="numer_telefonuLen"/>
+			<xs:element name ="adres" type="adresType"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:simpleType name="numer_telefonuLen">
+		<xs:restriction base="xs:string">
+			<xs:length value="9" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="adresType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="kod_pocztowy" type="xs:string" />
+			<xs:element name="miasto" type="xs:string" />
+			<xs:element name="ulica" type="xs:string" />
+			<xs:element name="nr_domu" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="zakonczenie_naprawyType">
+		<xs:all>
+			<xs:element name="data" type="xs:date"/>
+			<xs:element name="godzina" type="xs:time"/>
+		</xs:all>
+	</xs:complexType>
+	
+	
+	<xs:complexType name ="naprawaType">
+		<xs:sequence>
+			<xs:element name="ogolne" type="ogolneType" />
+			<xs:element name="opis" type="opisType" />
+			<xs:element name="dane_klienta" type="dane_klientaType" />
+			<xs:element name="zakonczenie_naprawy" type ="zakonczenie_naprawyType"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" />
+	</xs:complexType>
+
+
 	<xs:element name="przeglad_napraw">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="naprawa">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="ogolne">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="urzadzenie" type="xs:string" />
-										<xs:element name="usterka" type="xs:string" />
-										<xs:element name="cena" type="xs:integer" />
-										<xs:element name="folia_ochronna">
-											<xs:simpleType>
-												<xs:restriction base="xs:token">
-													<xs:enumeration value="tak"/>
-													<xs:enumeration value="nie"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="typ_naprawy">
-											<xs:simpleType>
-												<xs:restriction base="xs:token">
-													<xs:enumeration value="naprawa stacjonarna"/>
-													<xs:enumeration value="naprawa wysyłkowa"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="opis">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="opis_glowny" type="xs:string" />
-										<xs:element name="opis_wewnetrzny" type="xs:string" />
-										<xs:element name="imei" type="int"/>
-										<xs:element name="kod_blokady" type="xs:int" />
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="dane_klienta">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="imie" type="xs:string" />
-										<xs:element name="nazwisko" type="xs:string" />
-										<xs:element name="numer_telefonu">
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:length value="9" />
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="adres">
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="kod_pocztowy">
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:pattern value="\d{2}-\d{4}"/>
-															</xs:restriction>
-														</xs:simpleType>
-													</xs:element>
-													<xs:element name="miasto" type="xs:string" />
-													<xs:element name="ulica" type="xs:string" />
-													<xs:element name="nr_domu" type="xs:string" />
-												</xs:sequence>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-							<xs:element name="zakonczenie_naprawy">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="data">
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:pattern value="\d{2}-\d{2}-\d{4}"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:element name="godzina">
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:pattern value="\d{2}:\d{2}"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="numer" type="xs:int" />
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="naprawa" type="naprawaType" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+
+		
 </xs:schema>
